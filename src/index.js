@@ -24,11 +24,15 @@ const onClickAdd = () => {
     alert("完了");
   });
 
-  //buttonタグ　(完了)生成 <button>削除</button>
+  //buttonタグ　(削除)生成 <button>削除</button>
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
-    alert("削除");
+    // 押された削除ボタンの親タグ(div)を未完了リストから削除
+    // 親要素を取得
+    const deleteTarget = deleteButton.parentNode;
+    // 子要素を消す
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
   });
 
   // divタグの子要素に各要素を設定
