@@ -10,7 +10,7 @@ const onClickAdd = () => {
   // div生成 <div></div>
   const div = document.createElement("div");
   // divタグにlist-lowクラスを付与 <div class="list-low"></div>
-  div.className = "list-low";
+  div.className = "list-row";
 
   // liタグ生成 <li></li>
   const li = document.createElement("li");
