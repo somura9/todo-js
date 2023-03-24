@@ -17,11 +17,27 @@ const onClickAdd = () => {
   // liに入力された文字を表示　 <li>ああああ</li>
   li.innerText = inputText;
 
+  //buttonタグ　(完了)生成 <button>完了</button>
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", () => {
+    alert("完了");
+  });
+
+  //buttonタグ　(完了)生成 <button>削除</button>
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "削除";
+  deleteButton.addEventListener("click", () => {
+    alert("削除");
+  });
+
   // divタグの子要素に各要素を設定
   // <div class="list-low">
   // 　　<li>ああああ</li>
   // </div>
   div.appendChild(li);
+  div.appendChild(completeButton);
+  div.appendChild(deleteButton);
 
   // 未完了リストに追加
   document.getElementById("incomplete-list").appendChild(div);
