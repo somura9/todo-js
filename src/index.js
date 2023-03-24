@@ -21,7 +21,11 @@ const onClickAdd = () => {
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
   completeButton.addEventListener("click", () => {
-    alert("完了");
+    const completeTarget = completeButton.parentNode;
+    document.getElementById("incomplete-list").removeChild(completeTarget);
+
+    document.getElementById("complete-list").appendChild(li);
+    document.getElementById("complete-list").appendChild(undoButton);
   });
 
   //buttonタグ　(削除)生成 <button>削除</button>
@@ -35,6 +39,15 @@ const onClickAdd = () => {
     document.getElementById("incomplete-list").removeChild(deleteTarget);
   });
 
+  // buttonタグ（戻す)生成 <button>戻す</button>
+  const undoButton = document.createElement("button");
+  undoButton.innerText = "戻す";
+  undoButton.addEventListener("click", () => {
+    const undoTarget = undoButton.parentNode;
+    document.getElementById("complete-list").removeChild(undoTarget);
+    document.getElementById("incomplete-list").appendChild(li);
+    document.getElementById("incomplete-list").appendChild(div);
+  });
   // divタグの子要素に各要素を設定
   // <div class="list-low">
   // 　　<li>ああああ</li>
