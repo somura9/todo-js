@@ -6,6 +6,11 @@ const onClickAdd = () => {
   // テキストボックスを空にする
   document.getElementById("add-text").value = "";
 
+  createIncompleteList(inputText);
+};
+
+// 未完了リストに追加する関数
+const createIncompleteList = (text) => {
   // javascriptでDOMを作成するにはcleateElement関数を使用
   // div生成 <div></div>
   const div = document.createElement("div");
@@ -15,7 +20,7 @@ const onClickAdd = () => {
   // liタグ生成 <li></li>
   const li = document.createElement("li");
   // liに入力された文字を表示　 <li>ああああ</li>
-  li.innerText = inputText;
+  li.innerText = text;
 
   //buttonタグ　(完了)生成 <button>完了</button>
   const completeButton = document.createElement("button");
@@ -39,6 +44,16 @@ const onClickAdd = () => {
     // buttonタグ生成
     const backButton = document.createElement("button");
     backButton.innerText = "戻す";
+    backButton.innerText = "戻す";
+    backButton.addEventListener("click", () => {
+      //押された戻すボタンの親タグを完了リストから削除
+      const deleteTarget = backButton.parentNode;
+      document.getElementById("complete-list").removeChild(deleteTarget);
+
+      //テキスト取得
+      const text = backButton.parentNode.firstElementChild.innerText;
+      createIncompleteList(text);
+    });
 
     //divタグの子要素に書く要素を設定
     addTarget.appendChild(li);
